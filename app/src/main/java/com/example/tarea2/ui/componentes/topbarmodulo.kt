@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.tarea2.Home
+import com.example.tarea2.Categorias
 import com.example.tarea2.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -35,7 +35,7 @@ fun TopBarConBackButton(
                     FloatingActionButton(
                         onClick = {
                             val popped = navController.popBackStack()
-                            if(!popped) navController.navigate(Home)
+                            if(!popped) navController.navigate(Categorias)
                             onBack?.invoke()
                         },
                         modifier = Modifier.size(40.dp)
