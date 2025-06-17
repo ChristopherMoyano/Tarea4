@@ -58,9 +58,15 @@ class AuthViewModel(
     }
 
     private fun isLoggedIn() {
-        viewModelScope.launch {
-            val response = authService.getUser();
-            authState = AuthUiState.loggedIn(true)
+        try {
+            viewModelScope.launch {
+                val response = authService.getUser();
+                authState = AuthUiState.loggedIn(true)
+            }
+        }catch (e: Exception){
+            Log.e("AuthViewModel","isLoggedIn failed: ${e.message}",e)
+            authState = AuthUiState.loggedIn(false)
         }
+
     }
 }
